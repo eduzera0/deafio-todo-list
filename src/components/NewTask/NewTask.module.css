@@ -1,0 +1,35 @@
+.newtask {
+    width: 46rem;
+    height: 3.375rem;
+    display: inline-block;
+    transform: translateY(-50%);
+}
+
+.newtask input {
+    width: 39.875rem;
+    height: 3.375rem;
+    border-radius: 8px;
+    padding: 1rem 0 1rem 1rem;
+    background: var(--gray-500);
+    border: 0;
+    color: var(--white);
+}
+
+.newtask button {
+    width: 5.625rem;
+    height: 3.25rem;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--blue-dark);
+    color: var(--gray-100);
+    margin-left: 8px ;
+    font-size: 0.875rem;
+    border: 0;
+    
+}
+
+.newtask button:hover {
+    cursor: pointer;
+    background: var(--blue);
+    transition: 0.2s;
+}
