@@ -1,50 +1,39 @@
-import styles from './NewTask.module.css';
-import { PlusCircle } from 'phosphor-react';
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
+import styles from "./NewTask.module.css";
+import { PlusCircle } from "phosphor-react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 
-interface TaskData <Array>{
-    content: string;
-    isCompleted: boolean;
+interface TaskData<Array> {
+  content: string;
+  isCompleted: boolean;
 }
 
+export function NewTask({ handleCreateNewTask }: any) {
+  const [nameTask, setNameTask] = useState("");
 
-export function NewTask() {
+  function handleNewTaskNameChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("");
+    setNameTask(event.target.value);
+  }
 
-    const [task, setTask] = useState([''])
+  function handleSubmit(event: FormEvent) {
+    handleCreateNewTask(event, nameTask);
+    setNameTask("");
+  }
 
-    const [nameTask, setNameTask] = useState('')
+  return (
+    <form onSubmit={handleSubmit} className={styles.newtask}>
+      <input
+        className={styles.label}
+        placeholder="Adicione uma nova tarefa"
+        required
+        onChange={handleNewTaskNameChange}
+        value={nameTask}
+      />
 
-    function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>){
-        event.preventDefault();
-        event.target.setCustomValidity('Este campo é obrigatório.');
-    }
-
-    function handleCreateNewTask(event: FormEvent){
-        event.preventDefault();
-        setTask([...task, nameTask])
-        setNameTask('');
-    }
-
-    function handleNewTaskNameChange(event: ChangeEvent<HTMLInputElement>){
-        event.target.setCustomValidity('');
-        setNameTask(event.target.value);
-    }
-
-    return (
-        <form onSubmit={handleCreateNewTask} className={styles.newtask}>
-            <input className={styles.label}
-                placeholder="Adicione uma nova tarefa"
-                onInvalid={handleNewTaskInvalid}
-                onChange={handleNewTaskNameChange}
-            />
-
-            <button type='submit' className={styles.button}
-            >
-                Criar
-                <PlusCircle />
-            </button>
-
-            
-        </form>
-    );
+      <button type="submit" className={styles.button}>
+        Criar
+        <PlusCircle className={styles.plusCircle} />
+      </button>
+    </form>
+  );
 }

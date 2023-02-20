@@ -1,7 +1,7 @@
 .newtask {
-    width: 46rem;
+    width: 50rem;
     height: 3.375rem;
-    display: inline-block;
+    display: flex;
     transform: translateY(-50%);
 }
 
@@ -10,6 +10,7 @@
     height: 3.375rem;
     border-radius: 8px;
     padding: 1rem 0 1rem 1rem;
+    box-sizing: border-box;
     background: var(--gray-500);
     border: 0;
     color: var(--white);
@@ -18,18 +19,26 @@
 .newtask button {
     width: 5.625rem;
     height: 3.25rem;
-    justify-content: center;
     border-radius: 8px;
     background: var(--blue-dark);
     color: var(--gray-100);
     margin-left: 8px ;
     font-size: 0.875rem;
     border: 0;
-    
+    line-height: 18px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .newtask button:hover {
     cursor: pointer;
     background: var(--blue);
     transition: 0.2s;
+}
+
+.newtask button .plusCircle {
+    margin-left: 8px;
+    align-items: center;
 }

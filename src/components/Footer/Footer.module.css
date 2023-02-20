@@ -1,0 +1,25 @@
+.footer {
+  width: 100%;
+  background: var(--gray-700);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+.redes {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+
+}
+
+.redes a {
+  text-decoration: none;
+  color: var(--gray-300);
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
